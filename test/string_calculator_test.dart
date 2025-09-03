@@ -18,4 +18,8 @@ void main() {
   test('should return sum of many numbers', () {
     expect(Calculator().add('1,2,3,4'), 10);
   });
+
+  test('should return sum of newlines as delimiter', () {
+    expect(Calculator().add('1\n2,3'), 6);
+  });
 }
