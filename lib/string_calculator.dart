@@ -1,7 +1,8 @@
 library string_calculator;
 
-/// A Calculator.
 class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+  int add(String numbers) {
+    if (numbers.isEmpty) return 0;
+    return 0;
+  }
 }
