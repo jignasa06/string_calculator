@@ -26,4 +26,9 @@ void main() {
   test('should return sum of custom single-char delimiter', () {
     expect(Calculator().add('//;\n1;2'), 3);
   });
+
+  test('should throw negatives with message when negatives takes as input', () {
+    expect(() => Calculator().add('-1,2,-3'),
+        throwsA(isA<ArgumentError>().having((e) => e.message, 'message', contains('-1'))));
+  });
 }
