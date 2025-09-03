@@ -29,10 +29,16 @@ void main() {
 
   test('should throw negatives with message when negatives takes as input', () {
     expect(() => Calculator().add('-1,2,-3'),
-        throwsA(isA<ArgumentError>().having((e) => e.message, 'message', contains('-1'))));
+        throwsA(isA<FormatException>().having((e) => e.message, 'message', contains('-1'))));
   });
 
   test('should return sum when custom delimiter | is used', () {
     expect(Calculator().add('//|\n4|5|6'), 15);
+  });
+
+  test('should throw exception for invalid number', () {
+    expect(Calculator().add('1,a,3'),
+      throwsA(predicate((e) => e is FormatException)),
+    );
   });
 }
