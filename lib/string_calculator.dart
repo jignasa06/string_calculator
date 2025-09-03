@@ -15,7 +15,11 @@ class Calculator {
     }
 
     final parts = input.split(RegExp(pattern));
-    final ints = parts.map(int.parse);
+    final ints = parts.map(int.parse).toList();
+    final negatives = ints.where((n) => n < 0).toList();
+    if (negatives.isNotEmpty) {
+      throw ArgumentError('Negative numbers not allowed: ${negatives.join(",")}');
+    }
     return ints.fold(0, (a, b) => a + b);
   }
 }
