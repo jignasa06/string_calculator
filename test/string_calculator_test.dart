@@ -28,10 +28,13 @@ void main() {
   });
 
   test('should throw negatives with message when negatives takes as input', () {
-    expect(() => Calculator().add('-1,2,-3'),
-        throwsA(isA<FormatException>().having(
-              (e) => e.message, 'message', contains('Negatives not allowed'),
-        )),
+    expect(
+      () => Calculator().add('-1,2,-3'),
+      throwsA(isA<FormatException>().having(
+        (e) => e.message,
+        'message',
+        contains('Negatives not allowed'),
+      )),
     );
   });
 
@@ -39,9 +42,14 @@ void main() {
     expect(Calculator().add('//|\n4|5|6'), 15);
   });
 
-  test('should throw exception for invalid number', () {
-    expect(Calculator().add('1,a,3'),
-      throwsA(predicate((e) => e is FormatException)),
+  test('should throw exception for invalid number format', () {
+    expect(
+      () => Calculator().add('1,a,3'),
+      throwsA(isA<FormatException>().having(
+        (e) => e.message,
+        'message',
+        contains('Invalid number format'),
+      )),
     );
   });
 }
