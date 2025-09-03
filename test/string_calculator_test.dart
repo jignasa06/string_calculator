@@ -31,4 +31,8 @@ void main() {
     expect(() => Calculator().add('-1,2,-3'),
         throwsA(isA<ArgumentError>().having((e) => e.message, 'message', contains('-1'))));
   });
+
+  test('should return sum when custom delimiter | is used', () {
+    expect(Calculator().add('//|\n4|5|6'), 15);
+  });
 }
