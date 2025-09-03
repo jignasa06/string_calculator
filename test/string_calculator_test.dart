@@ -22,4 +22,8 @@ void main() {
   test('should return sum of newlines as delimiter', () {
     expect(Calculator().add('1\n2,3'), 6);
   });
+
+  test('should return sum of custom single-char delimiter', () {
+    expect(Calculator().add('//;\n1;2'), 3);
+  });
 }
