@@ -6,4 +6,8 @@ void main() {
   test('should return 0 for an empty string', () {
     expect(Calculator().add(''), 0);
   });
+
+  test('should return integer for a single numbered string', () {
+    expect(Calculator().add('1'), 1);
+  });
 }
