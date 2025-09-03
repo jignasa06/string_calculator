@@ -11,11 +11,11 @@ void main() {
     expect(Calculator().add('1'), 1);
   });
 
-  test('two numbers comma separated', () {
+  test('should return sum of two numbers comma separated', () {
     expect(Calculator().add('1,5'), 6);
   });
 
-  test('many numbers', () {
+  test('should return sum of many numbers', () {
     expect(Calculator().add('1,2,3,4'), 10);
   });
 }
